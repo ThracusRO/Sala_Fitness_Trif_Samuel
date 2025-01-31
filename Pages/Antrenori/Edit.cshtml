@@ -1,0 +1,50 @@
+﻿@page
+@model Sala_Fitness_Trif_Samuel.Pages.Antrenori.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Antrenor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Antrenor.ID" />
+            <div class="form-group">
+                <label asp-for="Antrenor.Nume" class="control-label"></label>
+                <input asp-for="Antrenor.Nume" class="form-control" />
+                <span asp-validation-for="Antrenor.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Antrenor.Prenume" class="control-label"></label>
+                <input asp-for="Antrenor.Prenume" class="form-control" />
+                <span asp-validation-for="Antrenor.Prenume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Antrenor.Telefon" class="control-label"></label>
+                <input asp-for="Antrenor.Telefon" class="form-control" />
+                <span asp-validation-for="Antrenor.Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Antrenor.SpecializareID" class="control-label"></label>
+                <select asp-for="Antrenor.SpecializareID" class="form-control" asp-items="ViewBag.SpecializareID"></select>
+                <span asp-validation-for="Antrenor.SpecializareID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
